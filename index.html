@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Data to API</title>
+    <script src="chat.js" defer></script>
+</head>
+
+<body style="background-color: black; color: grey; ">
+    <h1>Submitted Data</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Message</th>
+            </tr>
+        </thead>
+        <tbody id="dataTable">
+            <!-- Data will be inserted here -->
+        </tbody>
+    </table>
+
+    <h1>Submit Data</h1>
+    <form id="dataForm">
+        <input style="background-color: grey; color: black;" type="text" id="name" placeholder="Enter your name"
+            required>
+        <input style="background-color: grey; color: black;" type="text" id="message" placeholder="Enter your message"
+            required>
+        <button type="submit">Submit</button>
+    </form>
+
+    <p id="responseMessage"></p>
+
+
+</body>
+
+</html>
