@@ -25,7 +25,7 @@ async function fetchData() {
 
 fetchData();
 
-socket.on("newData", () => {
+socket.on("newEntry", () => {
     console.log("New data received:");
 });
 
