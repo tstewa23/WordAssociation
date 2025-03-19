@@ -55,22 +55,18 @@ button.addEventListener("click", async () => {
     clickToggle ? button.innerText = "RESET" : button.innerText = "DELETE"
     clickToggle = !clickToggle
 
-    // try {
-    //     const response = await fetch('https://my-express-api-tstewa23.onrender.com/submit', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //         },
-    //         body: JSON.stringify({ name, message })
-    //     });
+    try {
+        const response = await fetch('https://my-express-api-tstewa23.onrender.com/delete', {
+            method: 'DELETE',
+        });
 
-    //     const result = await response.json();
+        const result = await response.json();
 
-    //     responseMessage.textContent = result.message;
-    // }
-    // catch (error) {
-    //     responseMessage.textContent = 'Error submitting data.';
-    // }
+        responseMessage.textContent = result.message;
+    }
+    catch (error) {
+        responseMessage.textContent = 'Error submitting data.';
+    }
 
 });
 

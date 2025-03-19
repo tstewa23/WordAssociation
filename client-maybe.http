@@ -1,7 +1,1 @@
-POST https://my-express-api-tstewa23.onrender.com/submit
-Content-Type: application/json
-
-{ 
-    "name": "Taylor", 
-    "message": "From vscode client"
-}
+DELETE  https://my-express-api-tstewa23.onrender.com/delete
