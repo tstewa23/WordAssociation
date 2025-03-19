@@ -1,26 +1,34 @@
+import { io } from "socket.io-client";
+const socket = io("https://my-express-api-tstewa23.onrender.com"); // Change to your API URL
+
 const form = document.getElementById('dataForm');
 const responseMessage = document.getElementById('responseMessage');
 
-// async function fetchData() {
-//     try {
-//         const response = await fetch('https://my-express-api-tstewa23.onrender.com/data'); // Fetch data from API
-//         const data = await response.json();
+async function fetchData() {
+    try {
+        const response = await fetch('https://my-express-api-tstewa23.onrender.com/data'); // Fetch data from API
+        const data = await response.json();
 
-//         const tableBody = document.getElementById('dataTable');
-//         tableBody.innerHTML = ''; // Clear existing table content
+        const tableBody = document.getElementById('dataTable');
+        tableBody.innerHTML = ''; // Clear existing table content
 
-//         data.forEach(item => {
-//             const row = document.createElement('tr');
-//             row.innerHTML = `<td>${item.name}</td><td>${item.message}</td>`;
-//             tableBody.appendChild(row);
-//         });
+        data.forEach(item => {
+            const row = document.createElement('tr');
+            row.innerHTML = `<td>${item.name}</td><td>${item.message}</td>`;
+            tableBody.appendChild(row);
+        });
 
-//     } catch (error) {
-//         console.error('Error fetching data:', error);
-//     }
-// }
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+}
 
-// fetchData();
+fetchData();
+
+socket.on("newData", () => {
+    console.log("New data received:");
+});
+
 
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
