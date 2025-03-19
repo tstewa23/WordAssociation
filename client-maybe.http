@@ -1,1 +1,7 @@
-GET  http://localhost:3000/data
+POST https://my-express-api-tstewa23.onrender.com/submit
+Content-Type: application/json
+
+{ 
+    "name": "Taylor", 
+    "message": "From vscode client"
+}
