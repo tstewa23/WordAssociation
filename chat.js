@@ -1,4 +1,3 @@
-import { io } from "socket.io-client";
 const socket = io("https://my-express-api-tstewa23.onrender.com"); // Change to your API URL
 
 const form = document.getElementById('dataForm');
@@ -9,14 +8,16 @@ async function fetchData() {
         const response = await fetch('https://my-express-api-tstewa23.onrender.com/data'); // Fetch data from API
         const data = await response.json();
 
-        const tableBody = document.getElementById('dataTable');
-        tableBody.innerHTML = ''; // Clear existing table content
+        console.log(data[0].name)
 
-        data.forEach(item => {
-            const row = document.createElement('tr');
-            row.innerHTML = `<td>${item.name}</td><td>${item.message}</td>`;
-            tableBody.appendChild(row);
-        });
+        // const tableBody = document.getElementById('dataTable');
+        // tableBody.innerHTML = ''; // Clear existing table content
+
+        // data.forEach(item => {
+        //     const row = document.createElement('tr');
+        //     row.innerHTML = `<td>${item.name}</td><td>${item.message}</td>`;
+        //     tableBody.appendChild(row);
+        // });
 
     } catch (error) {
         console.error('Error fetching data:', error);
@@ -25,9 +26,9 @@ async function fetchData() {
 
 fetchData();
 
-socket.on("newEntry", () => {
-    console.log("New data received:");
-});
+// socket.on("newEntry", () => {
+//     console.log("New data received:");
+// });
 
 
 form.addEventListener('submit', async (e) => {
