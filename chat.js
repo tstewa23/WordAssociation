@@ -25,10 +25,12 @@ async function fetchData() {
 fetchData();
 
 socket.on("newEntry", () => {
-    console.log("New data received");
     fetchData();
 });
 
+socket.on("newDelete", () => {
+    fetchData();
+});
 
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
