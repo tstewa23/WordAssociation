@@ -10,7 +10,7 @@
 </head>
 
 <body style="background-color: black; color: grey; ">
-    <h1>Google Cast Connect</h1>
+    <h1>Actor Web</h1>
     <h3>Connect <em>Actor 1</em> to <em>Actor 2</em> using other actors that share movies or tv shows</h3>
     <p>ex: Steve Carrel to Emily Blunt <br> Steve Carrel and John Krisinski are in The Office together <br> John
         Krisinski and Emily Blunt are in A Quite Place together</p>
@@ -31,7 +31,8 @@
         <thead>
             <tr>
                 <th>Name</th>
-                <th>Message</th>
+                <th>Actor</th>
+                <th>Connection</th>
             </tr>
         </thead>
         <tbody id="dataTable">
@@ -41,10 +42,12 @@
 
     <h1>Entry</h1>
     <form id="dataForm">
-        <input style="background-color: grey; color: black;" type="text" id="name" placeholder="Enter your name"
+        <input style="background-color: white; color: black;" type="text" id="name" placeholder="Enter your name"
             required>
-        <input style="background-color: grey; color: black;" type="text" id="message" placeholder="Enter your message"
+        <input style="background-color: white; color: black;" type="text" id="message" placeholder="Enter your Actor"
             required>
+        <input style="background-color: white; color: black;" type="text" id="message"
+            placeholder="Enter the connecetion" required>
         <button type="submit">Submit</button>
     </form>
 
