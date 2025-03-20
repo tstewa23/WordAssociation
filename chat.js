@@ -8,16 +8,14 @@ async function fetchData() {
         const response = await fetch('https://my-express-api-tstewa23.onrender.com/data'); // Fetch data from API
         const data = await response.json();
 
-        console.log(data[0].name)
+        const tableBody = document.getElementById('dataTable');
+        tableBody.innerHTML = ''; // Clear existing table content
 
-        // const tableBody = document.getElementById('dataTable');
-        // tableBody.innerHTML = ''; // Clear existing table content
-
-        // data.forEach(item => {
-        //     const row = document.createElement('tr');
-        //     row.innerHTML = `<td>${item.name}</td><td>${item.message}</td>`;
-        //     tableBody.appendChild(row);
-        // });
+        data.forEach(item => {
+            const row = document.createElement('tr');
+            row.innerHTML = `<td>${item.name}</td><td>${item.message}</td>`;
+            tableBody.appendChild(row);
+        });
 
     } catch (error) {
         console.error('Error fetching data:', error);
@@ -26,9 +24,10 @@ async function fetchData() {
 
 fetchData();
 
-// socket.on("newEntry", () => {
-//     console.log("New data received:");
-// });
+socket.on("newEntry", () => {
+    console.log("New data received");
+    fetchData();
+});
 
 
 form.addEventListener('submit', async (e) => {
