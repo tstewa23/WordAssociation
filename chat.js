@@ -13,7 +13,7 @@ async function fetchData() {
 
         data.forEach(item => {
             const row = document.createElement('tr');
-            row.innerHTML = `<td>${item.name}</td><td>${item.message}</td>`;
+            row.innerHTML = `<td>${item.name}</td><td>${item.actor}</td><td>${item.connection}</td>`;
             tableBody.appendChild(row);
         });
 
@@ -36,10 +36,11 @@ form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const name = document.getElementById('name').value;
-    const message = document.getElementById('message').value;
+    const actor = document.getElementById('actor').value;
+    const connection = document.getElementById('connection').value;
 
-    document.getElementById('name').value = '';
-    document.getElementById('message').value = '';
+    document.getElementById('actor').value = '';
+    document.getElementById('connection').value = '';
 
     try {
         const response = await fetch('https://my-express-api-tstewa23.onrender.com/submit', {
@@ -47,7 +48,7 @@ form.addEventListener('submit', async (e) => {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ name, message })
+            body: JSON.stringify({ name, actor, connection })
         });
 
         const result = await response.json();
